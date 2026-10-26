@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f72">
+  <meta name="description" content="Discover India's beautiful destinations, explore heritage places, and plan your journey with Knowway. Your Journey, Your Rules.">
+  <title>Knowway — Your Journey, Your Rules</title>
+  <style>
+    :root {
+      --teal: #087f72;
+      --teal-dark: #07584f;
+      --gold: #f2bd38;
+      --ink: #172b2a;
+      --muted: #657572;
+      --cream: #f8faf7;
+    }* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: white;
+  line-height: 1.6;
+}
+
+a { text-decoration: none; }
+
+.nav {
+  min-height: 72px;
+  padding: 14px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: white;
+}
+
+.brand {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--teal);
+}
+
+.brand span { color: #dba51c; }
+
+.nav-link {
+  color: var(--teal-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero {
+  position: relative;
+  min-height: 570px;
+  padding: 76px 7%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(5, 43, 39, .88), rgba(5, 43, 39, .55) 56%, rgba(5, 43, 39, .12)),
+    url("https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2000&q=85")
+    center 48% / cover no-repeat;
+}
+
+.hero-content {
+  max-width: 650px;
+  color: white;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+h1 span { color: var(--gold); }
+
+.hero p {
+  max-width: 530px;
+  margin: 23px 0 30px;
+  color: rgba(255,255,255,.9);
+  font-size: 17px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 51px;
+  padding: 13px 23px;
+  border-radius: 9px;
+  font-weight: 800;
+  font-size: 14px;
+  transition: transform .2s, background .2s;
+}
+
+.button:hover { transform: translateY(-2px); }
+
+.button-gold {
+  background: var(--gold);
+  color: #202b20;
+  box-shadow: 0 7px 24px rgba(0,0,0,.15);
+}
+
+.button-outline {
+  border: 1px solid rgba(255,255,255,.6);
+  color: white;
+  margin-left: 10px;
+}
+
+section { padding: 72px 7%; }
+
+.section-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 36px;
+}
+
+.section-heading h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  letter-spacing: -1px;
+}
+
+.section-heading h2 span { color: var(--teal); }
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.feature {
+  padding: 27px 23px;
+  background: var(--cream);
+  border: 1px solid #e8efeb;
+  border-radius: 15px;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: #dff3ed;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.feature h3 { margin: 0 0 8px; font-size: 19px; }
+
+.feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.destinations { background: #f4f8f5; }
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.destination {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #dce6e0;
+}
+
+.destination img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .4s;
+}
+
+.destination:hover img { transform: scale(1.05); }
+
+.destination::after {
+  content: "";
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.75));
+}
+
+.destination-label {
+  position: absolute;
+  z-index: 1;
+  left: 19px;
+  right: 19px;
+  bottom: 16px;
+  color: white;
+}
+
+.destination-label strong { display: block; font-size: 21px; }
+.destination-label span { font-size: 13px; color: #f2f2f2; }
+
+.download {
+  text-align: center;
+  color: white;
+  background: linear-gradient(125deg, #07584f, #0a8b78);
+}
+
+.download h2 {
+  margin: 0 0 12px;
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.2;
+}
+
+.download h2 span { color: var(--gold); }
+
+.download p {
+  max-width: 570px;
+  margin: 0 auto 27px;
+  color: rgba(255,255,255,.86);
+}
+
+.download-note {
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(255,255,255,.7);
+}
+
+footer {
+  padding: 28px 7%;
+  background: #103b36;
+  color: rgba(255,255,255,.78);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 13px;
+}
+
+footer .brand { color: white; font-size: 23px; }
+
+.footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+.footer-links a { color: white; }
+
+@media (max-width: 700px) {
+  .nav { min-height: 64px; padding: 12px 5%; }
+  .brand { font-size: 25px; }
+  .hero {
+    min-height: 570px;
+    padding: 65px 6%;
+    background-position: 58% center;
+  }
+  .hero p { font-size: 16px; }
+  .button { width: 100%; }
+  .button-outline { margin: 11px 0 0; }
+  section { padding: 55px 6%; }
+  .features, .destination-grid { grid-template-columns: 1fr; }
+  .feature { padding: 23px; }
+  .destination { height: 230px; }
+  footer { padding: 26px 6%; }
+}
+
+@media (min-width: 701px) and (max-width: 950px) {
+  .features, .destination-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#" aria-label="Knowway home">Know<span>way</span></a>
+    <a class="nav-link" href="#discover">Explore India ↓</a>
+  </header>  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Discover the incredible India</span>
+        <h1>Your Journey,<br><span>Your Rules.</span></h1>
+        <p>
+          From timeless monuments to hidden gems, discover places worth exploring
+          and plan your next Indian adventure with Knowway.
+        </p>
+        <a class="button button-gold" href="#download">Discover Knowway &nbsp; →</a>
+        <a class="button button-outline" href="#discover">Explore destinations</a>
+      </div>
+    </section><section id="discover">
+  <div class="section-heading">
+    <h2>More than places.<br><span>Stories waiting to be found.</span></h2>
+    <p>Find inspiration for your next journey and make exploring India your own.</p>
+  </div>
+
+  <div class="features">
+    <article class="feature">
+      <div class="feature-icon" aria-hidden="true">🧭</div>
+      <h3>Discover Nearby</h3>
+      <p>Explore attractions and heritage places around you and across India.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-icon" aria-hidden="true">🏛️</div>
+      <h3>Explore Heritage</h3>
+      <p>Find fascinating destinations and discover the stories behind them.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-icon" aria-hidden="true">🗺️</div>
+      <h3>Plan Your Journey</h3>
+      <p>Choose the places you want to visit and organise your own trip.</p>
+    </article>
+  </div>
+</section>
+
+<section class="destinations">
+  <div class="section-heading">
+    <h2>India is calling.<br><span>Where will you go?</span></h2>
+    <p>Ancient wonders, vibrant cities and unforgettable landscapes.</p>
+  </div>
+
+  <div class="destination-grid">
+    <article class="destination">
+      <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=900&q=80" alt="Taj Mahal in Agra" loading="lazy">
+      <div class="destination-label"><strong>Agra</strong><span>A timeless symbol of love</span></div>
+    </article>
+    <article class="destination">
+      <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80" alt="Lush green Kerala landscape" loading="lazy">
+      <div class="destination-label"><strong>Kerala</strong><span>Nature, backwaters and calm</span></div>
+    </article>
+    <article class="destination">
+      <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=900&q=80" alt="Historic palace in Rajasthan" loading="lazy">
+      <div class="destination-label"><strong>Rajasthan</strong><span>Forts, palaces and history</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="download" id="download">
+  <h2>Your next adventure<br>starts with <span>Knowway.</span></h2>
+  <p>
+    Get ready to discover new places, explore India's heritage
+    and create a journey that feels like yours.
+  </p>
+  <!-- Replace the # below with the official Knowway Google Play Store URL before launch. -->
+  <a class="button button-gold" href="#" id="play-store-link">Get it on Google Play &nbsp; →</a>
+  <span class="download-note" id="download-note">App download link will be available here soon.</span>
+</section>
+
+  </main>  <footer>
+    <a class="brand" href="#">Know<span>way</span></a>
+    <span>Your Journey, Your Rules.</span>
+    <div class="footer-links">
+      <a href="mailto:goldenbirdin91@gmail.com">Contact</a>
+      <a href="https://knowway-seven.vercel.app/" target="_blank" rel="noopener noreferrer">Open App</a>
+    </div>
+    <span>© <span id="year"></span> Knowway</span>
+  </footer>  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script></body>
+    </html>

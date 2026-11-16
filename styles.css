@@ -1268,3 +1268,48 @@ button:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* KnowWay in Numbers */
+.numbers-section {
+  padding: 88px 0 82px;
+  background: #f7f3ee;
+  border-top: 1px solid #eee6df;
+  border-bottom: 1px solid #eee6df;
+}
+.numbers-heading { max-width: 680px; margin: 0 auto 38px; text-align: center; }
+.numbers-heading .eyebrow { color: var(--maroon-soft); }
+.numbers-heading h2 { margin: 10px 0 10px; color: var(--maroon); font-family: Georgia, serif; font-size: clamp(32px, 4vw, 46px); line-height: 1.12; }
+.numbers-heading p { margin: 0; color: var(--muted); font-size: 16px; }
+.numbers-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.number-card { min-height: 190px; padding: 23px 22px 20px; display: flex; flex-direction: column; align-items: flex-start; background: #fff; border: 1px solid #ece3dc; border-radius: 15px; box-shadow: 0 10px 28px rgb(43 9 18 / 4%); }
+.number-icon { width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 14px; border-radius: 11px; background: #f8f0e7; color: var(--maroon); font-size: 22px; }
+.number-value { color: var(--maroon); font-family: Georgia, serif; font-size: clamp(30px, 3.5vw, 40px); line-height: 1; font-weight: 700; font-variant-numeric: tabular-nums; }
+.number-label { margin-top: 9px; color: var(--ink); font-size: 15px; font-weight: 700; }
+.number-note { margin-top: 5px; color: var(--muted); font-size: 12px; }
+.india-coverage { margin-top: 20px; padding: 24px 28px; display: flex; align-items: center; gap: 20px; color: #fff; background: linear-gradient(110deg, #35101b, #5a1d2d); border-radius: 17px; }
+.coverage-mark { width: 48px; height: 48px; flex: 0 0 48px; display: grid; place-items: center; border: 1px solid rgb(255 255 255 / 24%); border-radius: 50%; color: var(--gold); font-size: 24px; }
+.india-coverage > div:nth-child(2) { flex: 1; }
+.coverage-kicker { display: block; margin-bottom: 4px; color: #e9c9ce; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.india-coverage > div:nth-child(2) strong { display: block; font-family: Georgia, serif; font-size: 23px; }
+.india-coverage p { margin: 5px 0 0; color: #eadde0; font-size: 13px; }
+.coverage-count { min-width: 115px; padding-left: 25px; border-left: 1px solid rgb(255 255 255 / 22%); text-align: center; }
+.coverage-count strong { display: block; color: var(--gold); font-family: Georgia, serif; font-size: 38px; line-height: 1; }
+.coverage-count span { display: block; margin-top: 5px; color: #fff; font-size: 12px; }
+.numbers-footnote { margin: 13px 0 0; color: #827779; font-size: 11px; text-align: center; }
+@media (max-width: 760px) {
+  .numbers-section { padding: 62px 0 58px; }
+  .numbers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+  .number-card { min-height: 170px; padding: 17px 15px; }
+  .number-icon { width: 34px; height: 34px; margin-bottom: 12px; }
+  .india-coverage { padding: 20px 17px; gap: 13px; }
+  .coverage-count { min-width: 85px; padding-left: 14px; }
+  .coverage-count strong { font-size: 32px; }
+  .india-coverage > div:nth-child(2) strong { font-size: 20px; }
+}
+@media (max-width: 380px) {
+  .number-card { min-height: 160px; padding: 15px 12px; }
+  .number-label { font-size: 13px; }
+  .number-note { font-size: 11px; }
+  .coverage-mark { display: none; }
+}

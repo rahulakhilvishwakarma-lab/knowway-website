@@ -284,6 +284,32 @@
         </div>
       </section>
 
+      <section class="numbers-section" id="knowway-numbers" aria-labelledby="numbers-title">
+        <div class="wrap">
+          <div class="numbers-heading">
+            <div class="eyebrow">The Knowway community</div>
+            <h2 id="numbers-title">KnowWay in Numbers</h2>
+            <p>Discover India. Plan smarter. Explore more.</p>
+          </div>
+
+          <div class="numbers-grid" aria-live="polite">
+            <article class="number-card"><span class="number-icon" aria-hidden="true">⌖</span><strong class="number-value" data-stat="touristPlaces">—</strong><span class="number-label">Tourist Places</span><small class="number-note">Places listed for discovery</small></article>
+            <article class="number-card"><span class="number-icon" aria-hidden="true">♙</span><strong class="number-value" data-stat="travelExplorers">—</strong><span class="number-label">Travel Explorers</span><small class="number-note">Registered Knowway explorers</small></article>
+            <article class="number-card"><span class="number-icon" aria-hidden="true">⌁</span><strong class="number-value" data-stat="routesGenerated">—</strong><span class="number-label">Routes Generated</span><small class="number-note">Routes successfully created</small></article>
+            <article class="number-card"><span class="number-icon" aria-hidden="true">▣</span><strong class="number-value" data-stat="tripsPlanned">—</strong><span class="number-label">Trips Planned</span><small class="number-note">Trips saved by explorers</small></article>
+            <article class="number-card"><span class="number-icon" aria-hidden="true">▤</span><strong class="number-value" data-stat="itineraries">—</strong><span class="number-label">Itineraries</span><small class="number-note">Travel plans created</small></article>
+            <article class="number-card"><span class="number-icon" aria-hidden="true">✧</span><strong class="number-value" data-stat="placesExplored">—</strong><span class="number-label">Places Explored</span><small class="number-note">Place detail views recorded</small></article>
+          </div>
+
+          <div class="india-coverage">
+            <div class="coverage-mark" aria-hidden="true">✦</div>
+            <div><span class="coverage-kicker">One country. Countless journeys.</span><strong>India Coverage</strong><p>Discover destinations across India's states and union territories.</p></div>
+            <div class="coverage-count"><strong>36</strong><span>States &amp; UTs</span></div>
+          </div>
+          <p class="numbers-footnote" id="numbers-status">Live figures will appear here when the public statistics feed is connected.</p>
+        </div>
+      </section>
+
       <section class="section" id="how">
         <div class="wrap">
           <div class="section-heading">
@@ -383,6 +409,33 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Set window.KNOWWAY_STATS_ENDPOINT to a public, read-only JSON endpoint
+      // returning { touristPlaces, travelExplorers, routesGenerated,
+      // tripsPlanned, itineraries, placesExplored }.
+      async function loadKnowwayStats() {
+        const status = document.getElementById("numbers-status");
+        const endpoint = window.KNOWWAY_STATS_ENDPOINT;
+        if (!endpoint) return;
+        try {
+          const response = await fetch(endpoint, { headers: { Accept: "application/json" }, cache: "no-store" });
+          if (!response.ok) throw new Error("Statistics feed unavailable");
+          const payload = await response.json();
+          const stats = payload.stats || payload;
+          const keys = ["touristPlaces", "travelExplorers", "routesGenerated", "tripsPlanned", "itineraries", "placesExplored"];
+          keys.forEach((key) => {
+            const value = stats[key];
+            const node = document.querySelector(`[data-stat="${key}"]`);
+            if (node && Number.isFinite(Number(value)) && value !== null && value !== "") {
+              node.textContent = new Intl.NumberFormat("en-IN").format(Number(value));
+            }
+          });
+          status.textContent = "Live platform figures · Updated " + new Date().toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
+        } catch (error) {
+          status.textContent = "Live statistics are temporarily unavailable.";
+        }
+      }
+      loadKnowwayStats();
 
       const menuButton = document.getElementById("menu-btn");
       const menuPanel = document.getElementById("menu-panel");

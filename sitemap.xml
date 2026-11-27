@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://knowway.in/</loc>
   </url>
-
   <url>
-    <loc>https://knowway.in/about.html</loc>
+    <loc>https://knowway.in/about</loc>
   </url>
-
   <url>
-    <loc>https://knowway.in/how-it-works.html</loc>
+    <loc>https://knowway.in/how-it-works</loc>
   </url>
-
   <url>
-    <loc>https://knowway.in/contact.html</loc>
+    <loc>https://knowway.in/contact</loc>
   </url>
-
   <url>
-    <loc>https://knowway.in/privacy-policy.html</loc>
+    <loc>https://knowway.in/privacy-policy</loc>
   </url>
-
   <url>
-    <loc>https://knowway.in/terms-and-conditions.html</loc>
+    <loc>https://knowway.in/terms-and-conditions</loc>
   </url>
-
 </urlset>
